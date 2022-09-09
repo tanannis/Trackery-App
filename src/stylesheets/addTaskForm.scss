@@ -1,0 +1,30 @@
+.todo-form {
+	display: flex;
+	flex-direction: column;
+
+	.task-input {
+		margin: 5px 0;
+		border: 1px solid slategray;
+		border-radius: 4px;
+	}
+
+	.name {
+		height: 30px;
+	}
+
+	.btn {
+		height: 25px;
+		width: 80px;
+		text-align: center;
+
+		span {
+			font-weight: bold;
+		}
+	}
+
+	.btn:hover {
+		cursor: pointer;
+		color: white;
+		background-color: darkgray;
+	}
+}

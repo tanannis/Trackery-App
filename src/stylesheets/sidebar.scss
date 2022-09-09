@@ -1,0 +1,35 @@
+.sidebar {
+	padding: 15px;
+	width: 8%;
+	height: calc(100vh - 50px);
+	position: sticky;
+	background-color: lightgray;
+	border-color: gray;
+
+	.links-container {
+		display: flex;
+		flex-direction: column;
+
+		.sidebar-link {
+			display: flex;
+			justify-content: center;
+			text-decoration: none;
+			color: black;
+			padding-bottom: 50px;
+
+			> :first-child {
+				padding-top: 15px;
+			}
+
+			.icon {
+				font-size: 28px;
+			}
+
+			.icon:hover {
+				cursor: pointer;
+				color: white;
+				transition: all 0.3s ease-in-out;
+			}
+		}
+	}
+}
