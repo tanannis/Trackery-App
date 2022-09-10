@@ -1,27 +1,48 @@
-import React from "react";
-import AddTaskForm from "./addTaskForm";
+import React, { useContext, useState } from "react";
+import TodoContext from "../context/todoContext";
+import TodoForm from "./todoForm";
 import "../stylesheets/todolist.scss";
 
 const ToDoList = () => {
-	const toggleCheckBoxChange = () => {
-		// toggling
+	const { state, dispatch } = useContext(TodoContext);
+
+	// each state ele in the array represents the check state of each todo in the list
+	const todoCheckStates = new Array(state.todos.length).fill(false);
+	const [checkedState, setCheckedState] = useState(todoCheckStates);
+
+	// match current todo's index with the checkedstate index
+	const toggleCheckStateChange = (index) => {
+		const updatedCheckState = checkedState.map((isChecked, i) =>
+			i === index ? !isChecked : isChecked
+		);
+		setCheckedState(updatedCheckState);
 	};
+
 	return (
 		<div className="todo-container">
-			<AddTaskForm />
+			<TodoForm />
 
 			<div className="tasks-list">
-				<div className="task">
-					<input
-						className="checkbox"
-						type="checkbox"
-						value={""}
-						checked={false}
-						onChange={toggleCheckBoxChange}
-					></input>
-					<span className="task-name">Walk Kobe</span>
-					<button className="delete-btn">X</button>
-				</div>
+				{state.todos.length &&
+					state.todos.map((todo, index) => (
+						<div className="task" key={index}>
+							<input
+								className="checkbox"
+								type="checkbox"
+								name={todo}
+								value={todo}
+								checked={checkedState[index]}
+								onChange={() => toggleCheckStateChange(index)}
+							></input>
+							<span className="task-name">{todo}</span>
+							<button
+								className="delete-btn"
+								onClick={() => dispatch({ type: "DELETE", payload: todo })}
+							>
+								X
+							</button>
+						</div>
+					))}
 			</div>
 		</div>
 	);
