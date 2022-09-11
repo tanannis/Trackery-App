@@ -1,7 +1,7 @@
 import React, { useContext, useReducer } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import TodoContext from "./context/todoContext";
-import { usePersistedContext } from "./hooks/usePersist";
+import { usePersistedContext, usePersistedReducer } from "./hooks/usePersist";
 import todoReducer from "./reducers/todoReducer";
 import TopBar from "./components/topbar";
 import SideBar from "./components/sidebar";
@@ -12,13 +12,13 @@ import Settings from "./pages/settings";
 import "./app.scss";
 
 const App = () => {
-	// create a global store to store the state
-	const globalStore = usePersistedContext(useContext(TodoContext), "state");
+	// create a `global state` by using persisted context from local store
+	const globalState = usePersistedContext(useContext(TodoContext), "state");
 
-	const [state, dispatch] = usePersistedContext(
-		useReducer(todoReducer, globalStore),
-		"state"
-	);
+	// combine the `todoReducer` that holds a new state, and global state into a new reducer
+	const newReducer = useReducer(todoReducer, globalState);
+
+	const [state, dispatch] = usePersistedReducer(newReducer, "state");
 
 	return (
 		<TodoContext.Provider value={{ state, dispatch }}>

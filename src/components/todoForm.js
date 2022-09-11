@@ -3,12 +3,22 @@ import TodoContext from "../context/todoContext";
 import "../stylesheets/todoForm.scss";
 
 const ToDoForm = () => {
-	// handle input value
-	const handleInputValue = (e) => {};
+	const [inputValue, setInputValue] = useState("");
+	const { dispatch } = useContext(TodoContext);
 
+	// handle when user type task to input
+	const handleInputValue = (e) => {
+		e.preventDefault();
+		setInputValue(e.target.value);
+	};
+
+	// When user click the Add button, input value will be dispatched to todoReducer
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		console.log(e.target.value);
+		if (inputValue) {
+			dispatch({ type: "ADD", payload: inputValue });
+			setInputValue("");
+		}
 	};
 
 	return (
@@ -17,12 +27,12 @@ const ToDoForm = () => {
 				<input
 					type="text"
 					placeholder="Add new task"
-					value={""}
+					value={inputValue}
 					className="task-input name"
 					onChange={handleInputValue}
 				></input>
-				<button type="submit" className="task-input btn">
-					<span>Submit</span>
+				<button type="submit" className="task-input btn" onClick={handleSubmit}>
+					<span>Add</span>
 				</button>
 			</form>
 		</div>

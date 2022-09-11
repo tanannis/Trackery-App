@@ -11,10 +11,11 @@ const ToDoList = () => {
 	const [checkedState, setCheckedState] = useState(todoCheckStates);
 
 	// match current todo's index with the checkedstate index
-	const toggleCheckStateChange = (index) => {
+	const toggleCheckStateChange = (index, todo) => {
 		const updatedCheckState = checkedState.map((isChecked, i) =>
 			i === index ? !isChecked : isChecked
 		);
+
 		setCheckedState(updatedCheckState);
 	};
 
@@ -32,9 +33,16 @@ const ToDoList = () => {
 								name={todo}
 								value={todo}
 								checked={checkedState[index]}
-								onChange={() => toggleCheckStateChange(index)}
+								onChange={() => toggleCheckStateChange(index, todo)}
 							></input>
-							<span className="task-name">{todo}</span>
+							<span
+								className="task-name"
+								style={{
+									textDecoration: checkedState[index] ? "line-through" : "",
+								}}
+							>
+								{todo}
+							</span>
 							<button
 								className="delete-btn"
 								onClick={() => dispatch({ type: "DELETE", payload: todo })}
