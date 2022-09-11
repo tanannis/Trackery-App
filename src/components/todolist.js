@@ -24,33 +24,35 @@ const ToDoList = () => {
 			<TodoForm />
 
 			<div className="tasks-list">
-				{state.todos.length &&
-					state.todos.map((todo, index) => (
-						<div className="task" key={index}>
-							<input
-								className="checkbox"
-								type="checkbox"
-								name={todo}
-								value={todo}
-								checked={checkedState[index]}
-								onChange={() => toggleCheckStateChange(index, todo)}
-							></input>
-							<span
-								className="task-name"
-								style={{
-									textDecoration: checkedState[index] ? "line-through" : "",
-								}}
-							>
-								{todo}
-							</span>
-							<button
-								className="delete-btn"
-								onClick={() => dispatch({ type: "DELETE", payload: todo })}
-							>
-								X
-							</button>
-						</div>
-					))}
+				<h2> Todo List </h2>
+				{state.todos.length
+					? state.todos.map((todo, index) => (
+							<div className="task" key={index}>
+								<input
+									className="checkbox"
+									type="checkbox"
+									name={todo}
+									value={todo}
+									checked={checkedState[index]}
+									onChange={() => toggleCheckStateChange(index, todo)}
+								></input>
+								<span
+									className="task-name"
+									style={{
+										textDecoration: checkedState[index] ? "line-through" : "",
+									}}
+								>
+									{todo}
+								</span>
+								<button
+									className="delete-btn"
+									onClick={() => dispatch({ type: "DELETE", payload: todo })}
+								>
+									X
+								</button>
+							</div>
+					  ))
+					: ""}
 			</div>
 		</div>
 	);
