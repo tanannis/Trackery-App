@@ -1,0 +1,22 @@
+.data-container {
+	display: flex;
+	margin: 30px;
+	width: 1000px;
+
+	.barchart-section,
+	.piechart-section {
+		height: 500px;
+		padding: 20px;
+		border: 1px solid rgb(234, 232, 232);
+		border-radius: 5px;
+	}
+
+	.barchart-section {
+		width: 65%;
+		margin-right: 30px;
+	}
+
+	.piechart-section {
+		width: 35%;
+	}
+}

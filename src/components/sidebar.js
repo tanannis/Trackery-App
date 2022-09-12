@@ -1,9 +1,9 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
 	faHouse,
-	faDatabase,
 	faCalendar,
 	faGear,
+	faChartPie,
 } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import "../stylesheets/sidebar.scss";
@@ -16,7 +16,7 @@ const SideBar = () => {
 					<FontAwesomeIcon icon={faHouse} className="icon" />
 				</Link>
 				<Link className="sidebar-link" to="/mydata">
-					<FontAwesomeIcon icon={faDatabase} className="icon" />
+					<FontAwesomeIcon icon={faChartPie} className="icon" />
 				</Link>
 				<Link className="sidebar-link" to="/calendar">
 					<FontAwesomeIcon icon={faCalendar} className="icon" />
