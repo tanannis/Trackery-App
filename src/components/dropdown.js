@@ -1,10 +1,15 @@
-const Dropdown = ({ handleChangeCategory, selections }) => {
+const Dropdown = ({ selections, getSelection }) => {
+	const handleChangeCategory = (e) => {
+		e.preventDefault();
+		return getSelection(e.target.value);
+	};
+
 	return (
-		<div>
+		<div className="dropdown">
 			<select
 				name="select"
-				onChange={handleChangeCategory}
 				className="selection"
+				onChange={handleChangeCategory}
 			>
 				{selections.map((selection, index) => (
 					<option value={selection} key={index}>

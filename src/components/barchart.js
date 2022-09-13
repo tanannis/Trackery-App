@@ -18,8 +18,9 @@ ChartJS.register(
 	Legend
 );
 
-const BarChart = ({ expenses }) => {
+const BarChart = ({ expenses, category }) => {
 	const expenses2022 = expenses[2022];
+	category = category.toLowerCase();
 
 	const labels = [
 		"January",
@@ -54,7 +55,7 @@ const BarChart = ({ expenses }) => {
 		datasets: [
 			{
 				label: "2022 Expense Report",
-				data: expenses2022.map((obj) => obj.total),
+				data: expenses2022.map((obj) => obj[category]),
 				backgroundColor: "rgba(54, 162, 235, 0.6)",
 				borderColor: "rgb(54, 162, 235)",
 				borderWidth: 1,

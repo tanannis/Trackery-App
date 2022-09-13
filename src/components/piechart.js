@@ -3,11 +3,11 @@ import { Pie } from "react-chartjs-2";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-const PieChart = ({ expenses }) => {
+const PieChart = ({ expenses, monthIdx }) => {
 	const expenses2022 = expenses[2022];
-	const { food, utilities, rent, shopping } = expenses2022[0];
-
 	const labels = ["Food", "Utilities", "Rent", "Shopping"];
+
+	const { food, utilities, rent, shopping } = expenses2022[monthIdx];
 
 	const data = {
 		labels,
@@ -32,7 +32,7 @@ const PieChart = ({ expenses }) => {
 		],
 	};
 	return (
-		<div className="barchart">
+		<div className="piechart">
 			<Pie data={data}></Pie>
 		</div>
 	);
