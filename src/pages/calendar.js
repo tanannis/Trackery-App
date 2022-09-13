@@ -5,9 +5,9 @@ import "../stylesheets/calendar.scss";
 const MyCalendar = () => {
 	const [date, setDate] = useState(new Date());
 
-	const handleSelectDate = (e) => {
-		// e.preventDefault();
-		console.log(e);
+	const handleSelectDate = (date) => {
+		console.log(date);
+		setDate(date);
 	};
 
 	return (
