@@ -1,6 +1,6 @@
 # Trackery App
 
-**_Work In Progress..._**
+## Work In Progress...
 
 https://trackery.netlify.app/
 
