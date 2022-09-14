@@ -1,10 +1,8 @@
 # Trackery App
 
+A personal task management app: https://trackery.netlify.app/
+
 ## Work In Progress...
-
-https://trackery.netlify.app/
-
-A personal task management app
 
 ### Features
 
