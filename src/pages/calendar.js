@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 import Calendar from "react-calendar";
+import EventsList from "../components/eventsList";
 import "../stylesheets/calendar.scss";
 
 const MyCalendar = () => {
@@ -12,8 +13,8 @@ const MyCalendar = () => {
 
 	return (
 		<div className="calendar-container">
-			{/* calender */}
-			<Calendar onChange={handleSelectDate} value={date} />
+			<Calendar onChange={handleSelectDate} value={date} selectRange={true} />
+			<EventsList></EventsList>
 		</div>
 	);
 };

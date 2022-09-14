@@ -1,0 +1,27 @@
+.events-container {
+	display: flex;
+	flex-direction: column;
+	width: 1000px;
+
+	h2 {
+		margin-top: 30px;
+		margin-left: 20px;
+	}
+
+	ul {
+		width: inherit;
+		margin-top: 10px;
+		padding: 0;
+
+		.event {
+			display: flex;
+			justify-content: flex-start;
+			margin: 0 30px 30px 25px;
+			border-bottom: 0.5px solid lightgray;
+
+			.event-name {
+				margin-left: 30px;
+			}
+		}
+	}
+}
