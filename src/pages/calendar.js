@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import Calendar from "react-calendar";
 import EventsList from "../components/eventsList";
 import "../stylesheets/calendar.scss";
