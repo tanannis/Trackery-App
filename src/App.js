@@ -7,6 +7,7 @@ import TopBar from "./components/topbar";
 import SideBar from "./components/sidebar";
 import Home from "./pages/home";
 import MyData from "./pages/mydata";
+import MyStocks from "./pages/myStocks";
 import Calendar from "./pages/calendar";
 import Settings from "./pages/settings";
 import "./app.scss";
@@ -28,6 +29,7 @@ const App = () => {
 					<SideBar />
 					<Routes>
 						<Route path="/" element={<Home />} />
+						<Route path="/mystocks" element={<MyStocks />} />
 						<Route path="/mydata" element={<MyData />} />
 						<Route path="/calendar" element={<Calendar />} />
 						<Route path="/settings" element={<Settings />} />

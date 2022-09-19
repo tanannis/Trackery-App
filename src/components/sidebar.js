@@ -4,6 +4,7 @@ import {
 	faCalendar,
 	faGear,
 	faChartPie,
+	faArrowTrendUp,
 } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import "../stylesheets/sidebar.scss";
@@ -14,6 +15,9 @@ const SideBar = () => {
 			<div className="links-container">
 				<Link className="sidebar-link" to="/">
 					<FontAwesomeIcon icon={faHouse} className="icon" />
+				</Link>
+				<Link className="sidebar-link" to="/mystocks">
+					<FontAwesomeIcon icon={faArrowTrendUp} className="icon" />
 				</Link>
 				<Link className="sidebar-link" to="/mydata">
 					<FontAwesomeIcon icon={faChartPie} className="icon" />
