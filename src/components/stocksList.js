@@ -13,15 +13,24 @@ const StocksList = ({ stocks }) => {
 		<div className="stocks-list">
 			{myStocks.length ? (
 				myStocks.map((stock, index) => (
-					<div className="stock" key={index}>
+					<div className="stock-info-container" key={index}>
 						<div className="identifier">
 							<h2>{stock.T}</h2>
-							<h3>{stock.name}</h3>
+							<h4>{stock.name}</h4>
 						</div>
-						<span>Close: {stock.c}</span>
-						{stock.c > stock.o
-							? `Up: ${Number.parseFloat(stock.c - stock.o).toFixed(2)}`
-							: `Down ${Number.parseFloat(stock.c - stock.o).toFixed(2)}`}
+
+						<div className="current-price">
+							<span className="close"> {stock.c} </span>
+							{stock.c > stock.o ? (
+								<span className="price-change-up">
+									+{Number.parseFloat(stock.c - stock.o).toFixed(2)}
+								</span>
+							) : (
+								<span className="price-change-down">
+									{Number.parseFloat(stock.c - stock.o).toFixed(2)}
+								</span>
+							)}
+						</div>
 					</div>
 				))
 			) : (

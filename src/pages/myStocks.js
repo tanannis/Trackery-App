@@ -34,7 +34,7 @@ const MyStocks = () => {
 
 	return (
 		<div className="stocks-container">
-			<h1>My Watch List </h1>
+			<h2>My Watch List </h2>
 			<StocksList stocks={stocks}></StocksList>
 		</div>
 	);
