@@ -4,7 +4,10 @@ import StocksList from "../components/stocksList";
 import "../stylesheets/mystocks.scss";
 
 const MyStocks = () => {
-	const { tickers } = useContext(StockContext);
+	const { tickers, stocksData } = useContext(StockContext);
+	// persist old stocks data in browser's local storage for first time access
+	localStorage.setItem("stockState", JSON.stringify(stocksData));
+
 	const [stocks, setStocks] = useState([]);
 
 	const fetchStockData = async () => {
@@ -21,7 +24,7 @@ const MyStocks = () => {
 				stocksArr.push(data);
 			}
 			setStocks(stocksArr);
-			// persist stocks data in browser's local storage
+			// persist new stocks data and replace the old data in browser's local storage
 			localStorage.setItem("stockState", JSON.stringify(stocksArr));
 		} catch (e) {
 			console.log(e);

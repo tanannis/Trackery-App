@@ -11,7 +11,7 @@ const StocksList = ({ stocks }) => {
 
 	return (
 		<div className="stocks-list">
-			{myStocks.length ? (
+			{myStocks ? (
 				myStocks.map((stock, index) => (
 					<div className="stock-info-container" key={index}>
 						<div className="identifier">
