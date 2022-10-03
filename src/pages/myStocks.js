@@ -30,6 +30,7 @@ const MyStocks = () => {
 
 	useEffect(() => {
 		fetchStockData();
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
 	return (
