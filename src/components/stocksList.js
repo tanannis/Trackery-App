@@ -1,13 +1,18 @@
-// import React, { useState, useContext } from "react";
+// import React, { useState, useMemo } from "react";
 import "../stylesheets/stocksList.scss";
 
-const StocksList = ({ stocks, errorMsg }) => {
-	console.log("STOCKS", stocks);
+const StocksList = ({ stocks }) => {
+	let myStocks = stocks;
+
+	// In case no result due to failed API call, just show the prev data from local storage
+	if (!stocks.length) {
+		myStocks = JSON.parse(localStorage.getItem("stockState"));
+	}
 
 	return (
 		<div className="stocks-list">
-			{stocks.length ? (
-				stocks.map((stock, index) => (
+			{myStocks.length ? (
+				myStocks.map((stock, index) => (
 					<div className="stock" key={index}>
 						<div className="identifier">
 							<h2>{stock.T}</h2>
@@ -20,7 +25,7 @@ const StocksList = ({ stocks, errorMsg }) => {
 					</div>
 				))
 			) : (
-				<span>{errorMsg}</span>
+				<span>{"Please add a ticker to watch list"}</span>
 			)}
 		</div>
 	);

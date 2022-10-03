@@ -8,7 +8,6 @@ const StockContext = createContext({
 		{ ticker: "TSLA", name: "Tesla Inc" },
 		{ ticker: "KO", name: "Coca-Cola Co" },
 	],
-	stocksData: [],
 });
 
 export default StockContext;
