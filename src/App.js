@@ -1,4 +1,5 @@
 import React, { useContext, useReducer } from "react";
+// Do not use BrowswerRouter because Netify will show 404 not found if refresh the page
 import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import TodoContext from "./context/todoContext";
 import { usePersistedContext, usePersistedReducer } from "./hooks/usePersist";

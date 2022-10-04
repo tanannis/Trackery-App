@@ -1,7 +1,7 @@
 import { createContext } from "react";
 
 const TodoContext = createContext({
-	todos: [],
+	todos: ["fix the controller", "do laundry"],
 });
 
 export default TodoContext;

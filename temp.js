@@ -1,13 +1,62 @@
 /*
+import React, { useContext, useEffect, useState } from "react";
+import TodoContext from "../context/todoContext";
+import TodoForm from "./todoForm";
+import "../stylesheets/todolist.scss";
 
-https://api.polygon.io/v2/aggs/ticker/AAPL/prev?adjusted=true&
-apiKey=_1HUHKpfXTQs2LI7VEUkglBB6JwCjl0x
+const ToDoList = () => {
+	const { state, dispatch } = useContext(TodoContext);
 
-https://api.polygon.io/v2/aggs/ticker/GOOGL/prev?adjusted=true&
-apiKey=_1HUHKpfXTQs2LI7VEUkglBB6JwCjl0x
+	// each state ele in the array represents the check state of each todo in the list
+	const todoCheckStates = new Array(state.todos.length).fill(false);
+	const [checkedState, setCheckedState] = useState(todoCheckStates);
 
-https://api.polygon.io/v2/aggs/ticker/AMZN/prev?adjusted=true&
-apiKey=_1HUHKpfXTQs2LI7VEUkglBB6JwCjl0x
+	// match current todo's index with the checkedstate index
+	const toggleCheckStateChange = (index, todo) => {
+		const updatedCheckState = checkedState.map((isChecked, i) =>
+			i === index ? !isChecked : isChecked
+		);
+		setCheckedState(updatedCheckState);
+	};
 
+	return (
+		<div className="todo-container">
+			<TodoForm />
 
+			<div className="tasks-list">
+				<h2> Todo List </h2>
+				{state.todos.length
+					? state.todos.map((todo, index) => (
+							<div className="task" key={index}>
+								<input
+									className="checkbox"
+									type="checkbox"
+									name={todo}
+									value={todo}
+									checked={checkedState[index]}
+									onChange={() => toggleCheckStateChange(index, todo)}
+								></input>
+								<span
+									className="task-name"
+									style={{
+										textDecoration: checkedState[index] ? "line-through" : "",
+									}}
+								>
+									{todo}
+								</span>
+								<button
+									className="delete-btn"
+									onClick={() => dispatch({ type: "DELETE", payload: todo })}
+								>
+									X
+								</button>
+							</div>
+					  ))
+					: ""}
+			</div>
+		</div>
+	);
+};
+
+export default ToDoList;
 */
