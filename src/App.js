@@ -1,5 +1,5 @@
 import React, { useContext, useReducer } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import TodoContext from "./context/todoContext";
 import { usePersistedContext, usePersistedReducer } from "./hooks/usePersist";
 import todoReducer from "./reducers/todoReducer";
